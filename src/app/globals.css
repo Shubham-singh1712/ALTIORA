@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/* =====================================================
+   ALTIORA — Design System
+   ===================================================== */
+
+@theme inline {
+  /* ── Brand Colors ── */
+  --color-gold: #D4AF37;
+  --color-gold-light: #F5E17A;
+  --color-gold-dark: #A8882B;
+
+  --color-surface: #101010;
+  --color-surface-alt: #080808;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+
+  /* ── Typography ── */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  /* ── Spacing ── */
+  --spacing-section: 8rem;
+
+  /* ── Border Radius ── */
+  --radius-card: 1rem;
+  --radius-btn: 9999px;
+
+  /* ── Animation Easing ── */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base Reset & Global Styles ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #050505;
+  color: #ffffff;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: rgba(212, 175, 55, 0.25);
+  color: #ffffff;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+/* ── Glass Card Utility ── */
+.glass-card {
+  background: rgba(16, 16, 16, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+}
+
+/* ── Gold Text Gradient ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37, #F5E17A, #D4AF37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animated Underline ── */
+.underline-gold {
+  position: relative;
+}
+.underline-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #D4AF37;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.underline-gold:hover::after {
+  width: 100%;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+/* ── Framer Motion: reduce motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Custom utilities for TailwindCSS v4 ── */
+@utility gold {
+  color: #D4AF37;
+}
+
+@utility border-gold {
+  border-color: #D4AF37;
+}
+
+@utility bg-gold {
+  background-color: #D4AF37;
+}
+
+@utility text-gold {
+  color: #D4AF37;
+}
+
+@utility border-white\/8 {
+  border-color: rgba(255,255,255,0.08);
+}
+
+@utility border-white\/5 {
+  border-color: rgba(255,255,255,0.05);
+}
+
+@utility border-white\/10 {
+  border-color: rgba(255,255,255,0.10);
+}
+
+@utility border-white\/15 {
+  border-color: rgba(255,255,255,0.15);
+}
+
+@utility border-white\/20 {
+  border-color: rgba(255,255,255,0.20);
+}
+
+@utility border-gold\/20 {
+  border-color: rgba(212,175,55,0.20);
+}
+
+@utility border-gold\/30 {
+  border-color: rgba(212,175,55,0.30);
+}
+
+@utility border-gold\/40 {
+  border-color: rgba(212,175,55,0.40);
+}
+
+@utility border-gold\/50 {
+  border-color: rgba(212,175,55,0.50);
+}
+
+@utility border-gold\/60 {
+  border-color: rgba(212,175,55,0.60);
+}
+
+@utility text-gold\/40 {
+  color: rgba(212,175,55,0.40);
+}
+
+@utility text-gold\/50 {
+  color: rgba(212,175,55,0.50);
+}
+
+@utility text-gold\/60 {
+  color: rgba(212,175,55,0.60);
+}
+
+@utility text-gold\/70 {
+  color: rgba(212,175,55,0.70);
+}
+
+@utility bg-gold\/5 {
+  background-color: rgba(212,175,55,0.05);
+}
+
+@utility bg-gold\/10 {
+  background-color: rgba(212,175,55,0.10);
+}
+
+@utility bg-gold\/15 {
+  background-color: rgba(212,175,55,0.15);
+}
+
+@utility bg-gold\/20 {
+  background-color: rgba(212,175,55,0.20);
+}
+
+@utility bg-gold\/30 {
+  background-color: rgba(212,175,55,0.30);
+}
+
+@utility bg-gold\/40 {
+  background-color: rgba(212,175,55,0.40);
+}
+
+@utility bg-gold\/80 {
+  background-color: rgba(212,175,55,0.80);
+}
+
+@utility font-serif {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+}
