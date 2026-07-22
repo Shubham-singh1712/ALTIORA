@@ -8,7 +8,9 @@ import MagneticButton from '@/components/shared/MagneticButton';
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
   { label: 'Process', href: '#process' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ];
 

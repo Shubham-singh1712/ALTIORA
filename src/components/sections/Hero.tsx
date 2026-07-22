@@ -2,11 +2,21 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, ChevronDown, Sparkles, ShieldCheck } from 'lucide-react';
 import MagneticButton from '@/components/shared/MagneticButton';
 import AnimatedCounter from '@/components/shared/AnimatedCounter';
 
-const words = ['Elevating', 'Hospitality', 'Brands', 'Beyond', 'Expectations.'];
+const headlineWords = [
+  'We',
+  'Build',
+  'Digital',
+  'Experiences',
+  'That',
+  'Turn',
+  'Visitors',
+  'Into',
+  'Customers.',
+];
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,258 +25,256 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]"
+      className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#050505] bg-grid-pattern pt-28 pb-16 lg:pt-36 lg:pb-20"
       id="home"
     >
-      {/* Floating gradient orbs */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating dynamic luxury mesh gradient */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full opacity-[0.07]"
+          className="absolute -top-32 right-10 w-[700px] h-[700px] rounded-full opacity-[0.12] blur-[120px]"
           style={{
-            background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
-          }}
-          animate={{
-            scale: [1, 1.15, 1],
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/3 w-[400px] h-[400px] rounded-full opacity-[0.05]"
-          style={{
-            background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #D4AF37 0%, #F5E17A 35%, transparent 70%)',
           }}
           animate={{
             scale: [1, 1.2, 1],
-            x: [0, -40, 0],
-            y: [0, 30, 0],
+            x: [0, 40, 0],
+            y: [0, -30, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute top-1/2 right-1/6 w-[300px] h-[300px] rounded-full opacity-[0.04]"
+          className="absolute bottom-10 left-10 w-[550px] h-[550px] rounded-full opacity-[0.08] blur-[100px]"
           style={{
-            background: 'radial-gradient(circle, #ffffff 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #ffffff 0%, #D4AF37 40%, transparent 70%)',
           }}
           animate={{
-            scale: [1, 1.3, 1],
+            scale: [1, 1.25, 1],
+            x: [0, -30, 0],
+            y: [0, 40, 0],
           }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
       </div>
 
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-        }}
-      />
-
       <motion.div
-        className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-24"
+        className="container mx-auto px-6 lg:px-12 relative z-10 my-auto"
         style={{ y, opacity }}
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Copy */}
-          <div>
-            {/* Eyebrow */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Headline & Persuasive CRO Copy */}
+          <div className="lg:col-span-7">
+            {/* Tagline Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center gap-3 mb-10"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 backdrop-blur-md mb-8"
             >
-              <div className="h-px w-12 bg-gold" />
-              <span className="text-gold text-xs tracking-[0.35em] uppercase font-medium">
-                Premium Hospitality Agency
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
+              <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-semibold">
+                Luxury Hospitality & Brand Architecture
               </span>
             </motion.div>
 
-            {/* Headline — word by word stagger */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.05] text-white mb-8">
-              {words.map((word, i) => (
-                <motion.span
-                  key={word}
-                  className="inline-block mr-[0.25em]"
-                  initial={{ opacity: 0, y: 60, rotateX: -20 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.4 + i * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {word === 'Beyond' || word === 'Expectations.' ? (
-                    <span className="text-gold">{word}</span>
-                  ) : (
-                    word
-                  )}
-                </motion.span>
-              ))}
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.06] text-white mb-8 tracking-tight">
+              {headlineWords.map((word, i) => {
+                const isHighlight =
+                  word === 'Digital' || word === 'Experiences' || word === 'Customers.';
+                return (
+                  <motion.span
+                    key={word + i}
+                    className="inline-block mr-[0.22em] origin-bottom"
+                    initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.35 + i * 0.08,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    {isHighlight ? (
+                      <span className="text-gold-gradient font-normal">{word}</span>
+                    ) : (
+                      word
+                    )}
+                  </motion.span>
+                );
+              })}
             </h1>
 
-            {/* Subheading */}
+            {/* Subheading / CRO Statement */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.05 }}
-              className="text-white/50 text-lg leading-relaxed mb-12 max-w-lg"
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="text-white/60 text-lg sm:text-xl font-light leading-relaxed mb-10 max-w-xl"
             >
-              We create premium websites, stunning menus, and engaging visual content
-              that help hotels and cafés stand out, build trust, and attract more customers.
+              We engineer bespoke digital flagship websites, high-converting culinary menus, and high-impact visual assets for luxury hotels, fine dining restaurants, and ambitious brands charging premium rates.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs & Trust Signal */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex flex-wrap items-center gap-5"
+              transition={{ duration: 0.8, delay: 1.25 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-14"
             >
               <MagneticButton href="#contact" variant="primary">
-                Start Your Project
+                Book ₹1L+ Strategy Call
                 <ArrowRight size={16} className="ml-1" />
               </MagneticButton>
               <MagneticButton href="#work" variant="secondary">
-                <Play size={14} className="mr-1 fill-current" />
-                View Our Work
+                Explore Case Studies
               </MagneticButton>
             </motion.div>
 
-            {/* Stats */}
+            {/* Proof Counters */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
-              className="mt-16 pt-10 border-t border-white/10 grid grid-cols-3 gap-8"
+              transition={{ duration: 1, delay: 1.45 }}
+              className="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 sm:gap-10"
             >
               {[
-                { value: 50, suffix: '+', label: 'Projects Delivered' },
-                { value: 100, suffix: '%', label: 'Client Satisfaction' },
-                { value: 3, suffix: 'x', label: 'Avg. Traffic Growth' },
+                { value: 50, suffix: '+', label: 'Bespoke Projects' },
+                { value: 3.2, suffix: 'x', label: 'Avg Direct Bookings' },
+                { value: 100, suffix: '%', label: 'Client Retention' },
               ].map(({ value, suffix, label }) => (
                 <div key={label}>
-                  <div className="text-3xl font-serif text-gold mb-1">
+                  <div className="text-2xl sm:text-4xl font-serif text-[#D4AF37] mb-1">
                     <AnimatedCounter target={value} suffix={suffix} />
                   </div>
-                  <div className="text-white/40 text-xs tracking-wider uppercase">{label}</div>
+                  <div className="text-white/40 text-[11px] sm:text-xs tracking-wider uppercase font-medium">
+                    {label}
+                  </div>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: Abstract 3D visual */}
-          <div className="hidden lg:flex items-center justify-center relative">
+          {/* Right Column: Floating Luxury Geometry */}
+          <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative">
             <HeroVisual />
           </div>
         </div>
       </motion.div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.8, duration: 0.8 }}
+        className="container mx-auto px-6 relative z-10 flex justify-center pt-8"
+      >
+        <a
+          href="#services"
+          className="flex flex-col items-center gap-2 text-white/40 hover:text-[#D4AF37] transition-colors group"
+          aria-label="Scroll down to services"
+        >
+          <span className="text-[11px] tracking-[0.25em] uppercase">Scroll To Explore</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#D4AF37]"
+          >
+            <ChevronDown size={14} />
+          </motion.div>
+        </a>
+      </motion.div>
     </section>
   );
 }
 
 function HeroVisual() {
   return (
-    <div className="relative w-[520px] h-[520px]">
-      {/* Outer rotating ring */}
+    <div className="relative w-[480px] h-[480px]">
+      {/* Outer concentric rings */}
       <motion.div
-        className="absolute inset-0 rounded-full border border-gold/10"
+        className="absolute inset-0 rounded-full border border-[#D4AF37]/15"
         animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-      >
-        {[0, 60, 120, 180, 240, 300].map((deg) => (
-          <div
-            key={deg}
-            className="absolute w-2 h-2 rounded-full bg-gold/30"
-            style={{
-              top: '50%',
-              left: '50%',
-              transform: `rotate(${deg}deg) translateX(256px) translateY(-50%)`,
-            }}
-          />
-        ))}
-      </motion.div>
-
-      {/* Mid rotating ring */}
-      <motion.div
-        className="absolute inset-[60px] rounded-full border border-white/5"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
       >
         {[0, 90, 180, 270].map((deg) => (
           <div
             key={deg}
-            className="absolute w-1.5 h-1.5 rounded-full bg-white/20"
+            className="absolute w-2.5 h-2.5 rounded-full bg-[#D4AF37]"
             style={{
               top: '50%',
               left: '50%',
-              transform: `rotate(${deg}deg) translateX(196px) translateY(-50%)`,
+              transform: `rotate(${deg}deg) translateX(240px) translateY(-50%)`,
             }}
           />
         ))}
       </motion.div>
 
-      {/* Inner ring */}
       <motion.div
-        className="absolute inset-[120px] rounded-full border border-gold/20"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+        className="absolute inset-16 rounded-full border border-white/10"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Central glow */}
+      {/* Central 3D Card Glass Stack */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
-          className="relative"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative w-72 h-80 glass-card p-6 flex flex-col justify-between shadow-2xl border border-white/15"
+          animate={{ y: [-8, 8, -8] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
-          {/* Glow */}
-          <div
-            className="absolute inset-0 rounded-full blur-3xl opacity-30"
-            style={{ background: 'radial-gradient(circle, #D4AF37, transparent 70%)' }}
-          />
-          {/* Main shape */}
-          <div className="relative w-48 h-48 rounded-full bg-[#101010] border border-white/10 flex items-center justify-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-            <div className="w-24 h-24 border border-gold/40 rotate-45 flex items-center justify-center">
-              <div className="w-12 h-12 border border-gold/60 rotate-0 flex items-center justify-center">
-                <div className="w-6 h-6 bg-gold/80 rounded-sm rotate-45" />
-              </div>
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
+              <span className="text-xs text-white/80 font-mono">ALTIORA // FLAGSHIP</span>
             </div>
+            <ShieldCheck size={16} className="text-[#D4AF37]" />
+          </div>
+
+          <div className="my-auto space-y-3">
+            <div className="text-xs text-[#D4AF37] uppercase tracking-widest font-semibold">
+              Conversion Architecture
+            </div>
+            <div className="text-xl font-serif text-white leading-snug">
+              Luxury Hotel & Culinary Digital Elevation
+            </div>
+            <div className="flex items-center gap-2 text-xs text-white/50">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              Direct Booking Engine Integrated
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-white/10 flex justify-between items-center text-[11px] text-white/40">
+            <span>ROI ESTIMATE</span>
+            <span className="text-[#D4AF37] font-semibold">+320% Revenue</span>
           </div>
         </motion.div>
       </div>
 
-      {/* Floating tags */}
+      {/* Floating Badges */}
       {[
-        { label: 'Premium Design', x: '-100%', y: '10%', delay: 0 },
-        { label: 'Hotel Websites', x: '85%', y: '15%', delay: 0.5 },
-        { label: 'Visual Content', x: '-80%', y: '75%', delay: 1 },
-        { label: 'Brand Strategy', x: '80%', y: '78%', delay: 1.5 },
+        { label: 'Boutique Hotel Flagships', x: '-110%', y: '-10%', delay: 0 },
+        { label: 'QR & Print Menu Systems', x: '80%', y: '10%', delay: 0.4 },
+        { label: 'High-Impact Reels', x: '-100%', y: '80%', delay: 0.8 },
+        { label: '₹1L+ Client Standard', x: '75%', y: '85%', delay: 1.2 },
       ].map(({ label, x, y: yPos, delay }) => (
         <motion.div
           key={label}
-          className="absolute glass-card px-3 py-1.5 text-xs text-white/70 tracking-wider whitespace-nowrap"
+          className="absolute glass-card px-4 py-2 text-xs text-white/80 tracking-wider whitespace-nowrap shadow-lg border border-white/10"
           style={{ left: '50%', top: '50%', translateX: x, translateY: yPos }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: delay + 1.8, duration: 0.6 }}
+          transition={{ delay: delay + 1.2, duration: 0.6 }}
         >
-          <span className="text-gold mr-1.5">◆</span>
+          <span className="text-[#D4AF37] mr-2">✦</span>
           {label}
         </motion.div>
       ))}
     </div>
   );
 }
+

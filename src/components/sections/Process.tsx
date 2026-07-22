@@ -6,68 +6,73 @@ import SectionHeader from '@/components/shared/SectionHeader';
 const steps = [
   {
     number: '01',
-    title: 'Understand Your Business',
+    phase: 'Discovery',
+    title: 'Immersion & Business Audit',
     description:
-      'We deep dive into your hospitality brand — your story, your guests, your goals. This becomes the foundation of everything we build.',
+      'We analyze your property, brand positioning, audience demographics, and current direct booking performance to establish concrete CRO benchmarks.',
   },
   {
     number: '02',
-    title: 'Research & Benchmark',
+    phase: 'Strategy',
+    title: 'Architecture & UX Blueprint',
     description:
-      'We study your competitive landscape, identify gaps, and find opportunities that will give your brand a clear edge.',
+      'Designing low-friction user paths, direct booking funnels, menu ordering psychology, and content hierarchy focused on high conversion rates.',
   },
   {
     number: '03',
-    title: 'Design the Experience',
+    phase: 'Design',
+    title: 'High-Fidelity Editorial UI',
     description:
-      'From wireframes to high-fidelity visuals — we design a digital experience that captures your brand essence and wows your guests.',
+      'Crafting bespoke Awwwards-caliber UI components, typography pairings, micro-interactions, dark mode elegance, and luxury visual language.',
   },
   {
     number: '04',
-    title: 'Develop & Engineer',
+    phase: 'Development',
+    title: 'Next.js & Framer Motion Code',
     description:
-      'Clean, fast, and scalable code. Your website is built for performance, accessibility, and conversion from day one.',
+      'Hand-coding performant React Server Components, smooth scroll providers, responsive layouts, and API integrations for instant speed.',
   },
   {
     number: '05',
-    title: 'Deliver & Deploy',
+    phase: 'Launch',
+    title: 'Testing & Global Deployment',
     description:
-      'We launch with precision — full testing, performance audits, and a smooth go-live. You\'re in good hands every step of the way.',
+      'Executing 100+ point Lighthouse audits, cross-device testing, SEO Schema verification, and seamless Vercel edge deployment.',
   },
   {
     number: '06',
-    title: 'Support & Grow',
+    phase: 'Support',
+    title: 'Optimization & Concierge Care',
     description:
-      'Post-launch, we remain your digital partner — monitoring performance, making improvements, and scaling your presence.',
+      'Continuous conversion rate optimization, monthly performance audits, security patches, and instant content updates.',
   },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-32 lg:py-40 bg-[#080808] overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section id="process" className="py-28 lg:py-40 bg-[#080808] relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeader
-          eyebrow="Our Process"
-          heading="Six Steps to Digital Excellence."
-          subheading="A clear, collaborative process that keeps you informed at every stage — and delivers extraordinary results."
+          eyebrow="Execution Roadmap"
+          heading="Six Phases To Digital Distinction."
+          subheading="A transparent, high-touch engineering process designed to keep your brand informed at every milestone while delivering flawless execution."
           align="center"
           className="mb-20"
         />
 
-        {/* Horizontal scrollable timeline on mobile, grid on desktop */}
         <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-[52px] left-0 right-0 h-px bg-white/8">
+          {/* Animated Connecting Line */}
+          <div className="hidden lg:block absolute top-[52px] left-8 right-8 h-px bg-white/10">
             <motion.div
-              className="h-full bg-gradient-to-r from-gold/30 via-gold/60 to-gold/30 origin-left"
+              className="h-full bg-gradient-to-r from-[#D4AF37] via-[#F5E17A] to-[#D4AF37] origin-left"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              transition={{ duration: 2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 }}
               viewport={{ once: true }}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -76,28 +81,31 @@ export default function Process() {
                 transition={{
                   duration: 0.7,
                   delay: index * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
+                  ease: [0.16, 1, 0.3, 1] as const,
                 }}
                 viewport={{ once: true, margin: '-40px' }}
-                className="relative flex flex-col items-center lg:items-center text-center"
+                className="relative flex flex-col items-center text-center group"
               >
-                {/* Step circle */}
-                <div className="relative mb-8">
-                  <div className="w-[104px] h-[104px] rounded-full border border-white/10 bg-[#101010] flex items-center justify-center relative group hover:border-gold/30 transition-colors duration-500">
-                    <span className="text-gold font-serif text-2xl font-light">{step.number}</span>
-                    {/* Pulse ring on hover */}
-                    <div className="absolute inset-0 rounded-full border border-gold/0 group-hover:border-gold/20 group-hover:scale-110 transition-all duration-500" />
+                {/* Step Circle */}
+                <div className="relative mb-6">
+                  <div className="w-24 h-24 rounded-full border border-white/15 bg-[#101010] flex items-center justify-center relative group-hover:border-[#D4AF37] transition-colors duration-500 shadow-xl">
+                    <span className="text-[#D4AF37] font-serif text-xl font-medium">{step.number}</span>
+                    <div className="absolute inset-0 rounded-full border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/30 group-hover:scale-110 transition-all duration-500" />
                   </div>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-white text-sm font-medium tracking-wide mb-3 leading-tight">
+                {/* Phase Tag */}
+                <span className="text-[10px] tracking-[0.25em] uppercase text-[#D4AF37] font-semibold mb-2">
+                  {step.phase}
+                </span>
+
+                {/* Title */}
+                <h3 className="text-white text-base font-serif font-light mb-3 leading-snug group-hover:text-[#D4AF37] transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-white/40 text-xs leading-relaxed hidden lg:block">
-                  {step.description}
-                </p>
-                <p className="text-white/40 text-sm leading-relaxed lg:hidden">
+
+                {/* Description */}
+                <p className="text-white/50 text-xs leading-relaxed font-light">
                   {step.description}
                 </p>
               </motion.div>
@@ -108,3 +116,4 @@ export default function Process() {
     </section>
   );
 }
+

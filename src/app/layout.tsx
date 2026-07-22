@@ -19,33 +19,35 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Altiora — Premium Digital Agency for Hospitality Brands',
+  title: 'ALTIORA — Luxury Digital Agency for Boutique Hotels & Culinary Brands',
   description:
-    'Altiora is a premium creative agency helping hotels, restaurants, and cafés elevate their digital presence through beautiful websites, stunning menus, and engaging visual content.',
+    'Altiora is an elite digital architecture and brand studio. We build bespoke Next.js web flagships, print & QR menu systems, and 4K cinematic reels for luxury hotels, fine dining restaurants, and brands charging ₹1L+ engagements.',
   keywords: [
-    'hotel website design',
-    'restaurant website',
-    'cafe branding',
-    'hospitality digital agency',
-    'menu design',
-    'reel editing',
-    'luxury web design India',
+    'luxury hotel website design',
+    'boutique hotel web agency',
+    'fine dining menu design',
+    'restaurant web development India',
+    'hospitality CRO agency',
+    '4K culinary reel editing',
+    'premium web agency ₹1L+',
   ],
-  authors: [{ name: 'Altiora' }],
+  authors: [{ name: 'Altiora Studio' }],
   creator: 'Altiora',
+  metadataBase: new URL('https://altiora.agency'),
   openGraph: {
-    title: 'Altiora — Premium Digital Agency for Hospitality Brands',
+    title: 'ALTIORA — Luxury Digital Agency for Hospitality Brands',
     description:
-      'We create premium websites, stunning menus, and engaging visual content for hotels, restaurants, and cafés.',
+      'We engineer bespoke web flagships, high-converting culinary menus, and 4K reels for luxury hotels and fine dining brands.',
     type: 'website',
+    url: 'https://altiora.agency',
     locale: 'en_IN',
-    siteName: 'Altiora',
+    siteName: 'ALTIORA',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Altiora — Premium Digital Agency for Hospitality Brands',
+    title: 'ALTIORA — Luxury Digital Agency for Hospitality Brands',
     description:
-      'We create premium websites, stunning menus, and engaging visual content for hotels, restaurants, and cafés.',
+      'We engineer bespoke web flagships, high-converting culinary menus, and 4K reels for luxury hotels and fine dining brands.',
   },
   robots: {
     index: true,
@@ -53,16 +55,68 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'ALTIORA Digital Agency',
+  image: 'https://altiora.agency/og-image.jpg',
+  '@id': 'https://altiora.agency',
+  url: 'https://altiora.agency',
+  telephone: '+919876543210',
+  priceRange: '₹100000 - ₹500000',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 15.2993,
+    longitude: 74.124,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '09:00',
+    closes: '19:00',
+  },
+  sameAs: [
+    'https://instagram.com/altiora',
+    'https://linkedin.com/company/altiora',
+  ],
+  service: [
+    {
+      '@type': 'Service',
+      name: 'Premium Website Development',
+      description: 'Next.js 16 bespoke web flagships for luxury hotels & resorts.',
+    },
+    {
+      '@type': 'Service',
+      name: 'Culinary Menu & Brand Design',
+      description: 'Print leather layouts and touchless QR digital menus.',
+    },
+    {
+      '@type': 'Service',
+      name: 'Reel & Commercial Video Editing',
+      description: '4K cinematic short-form video editing for luxury dining.',
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-[#050505] text-white antialiased overflow-x-hidden">
-        <SmoothScrollProvider>
-          {children}
-        </SmoothScrollProvider>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
 }
+

@@ -75,18 +75,44 @@ body {
 /* ── Glass Card Utility ── */
 .glass-card {
   background: rgba(16, 16, 16, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.75rem;
+  border-radius: 1rem;
+}
+
+.glass-card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.glass-card-hover:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.07);
 }
 
 /* ── Gold Text Gradient ── */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #D4AF37, #F5E17A, #D4AF37);
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E17A 50%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Animated Background Grid ── */
+.bg-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* ── Animated Glow Gradient ── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 8s ease-in-out infinite;
 }
 
 /* ── Animated Underline ── */
@@ -111,6 +137,29 @@ body {
 .container {
   max-width: 1280px;
   margin-inline: auto;
+}
+
+/* ── Custom Cursor Styles ── */
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}
+
+/* ── Keyframe Marquee ── */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* ── Framer Motion: reduce motion ── */
@@ -226,3 +275,4 @@ body {
 @utility font-serif {
   font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
 }
+
