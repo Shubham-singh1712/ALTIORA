@@ -3,6 +3,8 @@ import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
 import FeaturedWork from '@/components/sections/FeaturedWork';
 import About from '@/components/sections/About';
+import RoiCalculator from '@/components/sections/RoiCalculator';
+import MenuShowcase from '@/components/sections/MenuShowcase';
 import WhyAltiora from '@/components/sections/WhyAltiora';
 import Process from '@/components/sections/Process';
 import Pricing from '@/components/sections/Pricing';
@@ -23,6 +25,8 @@ export default function Home() {
       <Hero />
       <Services />
       <FeaturedWork />
+      <RoiCalculator />
+      <MenuShowcase />
       <About />
       <WhyAltiora />
       <Process />
@@ -35,4 +39,5 @@ export default function Home() {
     </main>
   );
 }
+
 

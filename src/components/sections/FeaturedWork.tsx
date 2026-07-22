@@ -92,6 +92,17 @@ const projects: Project[] = [
 
 export default function FeaturedWork() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  const categories = ['All', 'Hotels', 'Restaurants', 'Cafes'];
+
+  const filteredProjects = projects.filter((p) => {
+    if (activeCategory === 'All') return true;
+    if (activeCategory === 'Hotels') return p.category.includes('Hotel');
+    if (activeCategory === 'Restaurants') return p.category.includes('Dining');
+    if (activeCategory === 'Cafes') return p.category.includes('Cafe');
+    return true;
+  });
 
   return (
     <section id="work" className="py-28 lg:py-40 bg-[#080808] relative overflow-hidden">
@@ -102,16 +113,35 @@ export default function FeaturedWork() {
       />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <SectionHeader
-          eyebrow="Case Studies"
-          heading="Proven Direct ROI For Luxury Brands."
-          subheading="Explore how our architecture, design, and content engineering transform hospitality operations into high-yield digital flagships."
-          align="left"
-          className="mb-20 max-w-2xl"
-        />
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <SectionHeader
+            eyebrow="Case Studies"
+            heading="Proven Direct ROI For Luxury Brands."
+            subheading="Explore how our architecture, design, and content engineering transform hospitality operations into high-yield digital flagships."
+            align="left"
+            className="max-w-2xl mb-0"
+          />
+
+          {/* Category Filter Tabs */}
+          <div className="flex items-center gap-2 p-1.5 rounded-full bg-white/5 border border-white/10 shrink-0">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-mono transition-all ${
+                  activeCategory === cat
+                    ? 'bg-[#D4AF37] text-black font-semibold shadow-md'
+                    : 'text-white/50 hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="space-y-12">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
