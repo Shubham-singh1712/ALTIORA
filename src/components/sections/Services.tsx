@@ -1,89 +1,73 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, Utensils, Sparkles, Film, Video, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Globe, Utensils, Sparkles, Film, ArrowRight, CheckCircle2 } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 const services = [
   {
     icon: Globe,
-    title: 'Premium Website Development',
-    tagline: 'High-Converting Digital Flagships',
+    title: 'Website Development',
+    tagline: 'High-Converting Web Experiences',
     description:
-      'Custom bespoke web applications built from scratch with Next.js & Framer Motion. Engineered specifically for boutique hotels and luxury restaurants to drive direct booking revenue.',
+      'Custom websites designed specifically for hotels, cafés, restaurants, and resorts to showcase your space, attract direct guests, and increase table/room bookings.',
     deliverables: [
-      'Next.js 16 + React Server Architecture',
-      'Direct Booking & WhatsApp API Flow',
-      'Ultra-Fast Lighthouse 95+ Scores',
-      'Interactive Room & Amenity Tours',
-      'Full SEO Schema & Meta Architecture',
-      'Concierge Client Management Portal',
+      'Mobile-Optimized Responsive Design',
+      'WhatsApp & Direct Booking Integration',
+      'Fast Load Times & Smooth Animations',
+      'Photo & Gallery Showcase',
+      'SEO & Google Business Mapping',
+      'Easy Content Management',
     ],
     accent: '#D4AF37',
   },
   {
     icon: Utensils,
-    title: 'Culinary Menu Design',
-    tagline: 'Print Meets Digital Prestige',
+    title: 'Menu Design',
+    tagline: 'Print & Digital Menus',
     description:
-      'High-end typography and layouts for print menus, QR touchless digital menus, and seasonal wine lists that elevate average check size and communicate culinary distinction.',
+      'Beautiful layouts for physical print menus and touchless QR menus that highlight your dishes and elevate the dining experience for your guests.',
     deliverables: [
-      'Bespoke Leather/Linen Print Layouts',
-      'Touchless QR Interactive Menus',
-      'Cocktail & Sommelier Booklets',
-      'High-Resolution Print Files (CMYK)',
-      'Instant Seasonal Price Update System',
-      'Instagram-Ready Digital Menu Assets',
+      'Custom Print Menu Layouts',
+      'QR Code Digital Menus',
+      'Beverage & Dessert Cards',
+      'High-Resolution Print Ready Files',
+      'Easy Price & Dish Updates',
+      'Social Media Menu Assets',
     ],
     accent: '#F5E17A',
   },
   {
     icon: Sparkles,
-    title: 'Brand Identity & Architecture',
-    tagline: 'Timeless Aesthetic Strategy',
+    title: 'Brand Identity',
+    tagline: 'Visual Identity & Assets',
     description:
-      'Comprehensive brand positioning for new opening hotels, cafes, and hospitality groups. We define your visual identity, typography system, tone of voice, and brand guidelines.',
+      'Clean visual identity for hotels, cafés, and restaurants. We create memorable logos, color palettes, and brand elements tailored to your atmosphere.',
     deliverables: [
-      'Logo Suite (Primary, Secondary, Monogram)',
-      'Bespoke Brand Color & Typography System',
-      'Stationery, Keycard & Packaging Design',
-      'Brand Storytelling & Copywriting Book',
-      'Social Media Graphic System',
-      'Comprehensive 40+ Page Brand Guidelines',
+      'Logo Suite (Primary & Secondary)',
+      'Color Palette & Font Selection',
+      'Business Cards & Stationery',
+      'Signage & Packaging Design',
+      'Social Media Templates',
+      'Brand Style Guide',
     ],
     accent: '#D4AF37',
   },
   {
     icon: Film,
-    title: 'Reel & Short-Form Editing',
-    tagline: 'Viral Culinary Content',
+    title: 'Reel & Short-Form Video Editing',
+    tagline: 'Social Media Video Content',
     description:
-      'Scroll-stopping Instagram Reels and TikTok content cut with rhythmic pacing, custom color grading, sound design, and kinetic captions to turn viewers into diners.',
+      'Engaging Instagram Reels and short-form videos featuring your dishes, ambiance, and hospitality stories to turn social media followers into customers.',
     deliverables: [
-      '4K 60FPS Color Graded Reels',
-      'Trend-Focused Audio & Kinetic Text',
-      'Atmospheric Sound Design & Mixing',
-      'Hook Optimization & Engagement Cuts',
-      'Content Calendar & Publishing Strategy',
-      'Monthly Engagement Performance Audits',
+      'High-Quality Color Graded Edits',
+      'Trending Audio & Captions',
+      'Ambience & Sound Editing',
+      'Food & Interior Highlights',
+      'Optimized for Instagram & Reels',
+      'Fast Turnaround Deliveries',
     ],
     accent: '#F5E17A',
-  },
-  {
-    icon: Video,
-    title: 'Commercial Video Production',
-    tagline: 'Cinematic Hospitality Storytelling',
-    description:
-      'Full-scale cinematic video production capturing the grandeur of luxury hotel suites, chef table culinary artistry, and brand mood films for websites and commercials.',
-    deliverables: [
-      '4K Cinematic Hotel & Dining Films',
-      'Aerial Drone Hospitality Videography',
-      'Chef Spotlight & Behind-The-Scenes',
-      'Full Sound Design & Mastered Audio',
-      'Website Background Hero Loop Cuts',
-      'Multi-Platform Ad Campaign Exports',
-    ],
-    accent: '#D4AF37',
   },
 ];
 
@@ -109,15 +93,15 @@ export default function Services() {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeader
-          eyebrow="Core Disciplines"
-          heading={`Crafted For Brands Charging\n₹1L+ Per Engagement.`}
-          subheading="Every discipline is executed with uncompromising standard. We combine high-end design aesthetics with conversion rate optimization engineered for direct business ROI."
+          eyebrow="What We Do"
+          heading={`Crafted For Hotels, Cafés & Restaurants.`}
+          subheading="We build simple, elegant, and effective digital experiences designed to attract more customers and build trust in your brand."
           align="center"
           className="mb-20"
         />
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -125,15 +109,12 @@ export default function Services() {
         >
           {services.map((service, index) => {
             const Icon = service.icon;
-            const isWide = index === 0;
 
             return (
               <motion.div
                 key={service.title}
                 variants={cardVariants}
-                className={`group relative glass-card glass-card-hover p-8 lg:p-10 flex flex-col justify-between overflow-hidden ${
-                  isWide ? 'md:col-span-2 lg:col-span-2' : ''
-                }`}
+                className="group relative glass-card glass-card-hover p-8 lg:p-10 flex flex-col justify-between overflow-hidden"
               >
                 {/* Top Glowing Edge */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -162,9 +143,9 @@ export default function Services() {
                   {/* Deliverables Checklist */}
                   <div className="border-t border-white/10 pt-6 mb-8">
                     <h4 className="text-xs uppercase tracking-widest text-white/40 mb-4 font-semibold">
-                      Key Deliverables
+                      What's Included
                     </h4>
-                    <div className={`grid ${isWide ? 'sm:grid-cols-2' : 'grid-cols-1'} gap-2.5`}>
+                    <div className="grid sm:grid-cols-2 gap-2.5">
                       {service.deliverables.map((item) => (
                         <div key={item} className="flex items-start gap-2.5 text-xs text-white/70">
                           <CheckCircle2 size={14} className="text-[#D4AF37] shrink-0 mt-0.5" />
@@ -180,7 +161,7 @@ export default function Services() {
                   href="#contact"
                   className="inline-flex items-center justify-between pt-4 border-t border-white/10 text-xs tracking-widest uppercase text-white/80 group-hover:text-[#D4AF37] transition-colors"
                 >
-                  <span>Inquire For This Discipline</span>
+                  <span>Request a Quote</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
@@ -191,4 +172,3 @@ export default function Services() {
     </section>
   );
 }
-

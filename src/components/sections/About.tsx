@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShieldCheck, Target, Compass, Award } from 'lucide-react';
+import { ShieldCheck, Target, Compass, Sparkles } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 
 export default function About() {
@@ -15,9 +15,9 @@ export default function About() {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeader
-          eyebrow="Our Manifesto"
-          heading={`Why Altiora Exists:\nRejecting Mediocrity.`}
-          subheading="We were founded on a simple observation — luxury hospitality brands were spending millions on physical architecture while settling for templated, generic digital presences."
+          eyebrow="Our Story"
+          heading="Honest & Dedicated Hospitality Partners."
+          subheading="We build websites and digital assets that give boutique hotels, cafés, and restaurants a modern online identity without inflated corporate costs."
           align="center"
           className="mb-20"
         />
@@ -32,17 +32,17 @@ export default function About() {
             className="lg:col-span-6 space-y-6 text-white/70 font-light text-base lg:text-lg leading-relaxed"
           >
             <h3 className="text-3xl font-serif text-white font-normal leading-snug">
-              We bridges the gap between physical prestige and digital revenue engineering.
+              Altiora was founded with one mission:
             </h3>
             <p>
-              When a guest steps into your hotel lobby or sits down at your culinary table, every detail has been intentionally curated — from the lighting and scent to the texture of the linen.
+              To help hospitality businesses create premium digital experiences without agency complexity.
             </p>
             <p>
-              Your digital presence should command that exact same emotional reverence. Altiora exists to architect digital flagships that evoke prestige, build immediate trust, and compel high-value clients to act.
+              Whether you run a luxury resort, a boutique hotel, a local café, or a vibrant restaurant, we believe your digital presence should match the quality of experience you deliver in person.
             </p>
             <div className="p-6 rounded-xl glass-card border border-[#D4AF37]/20 bg-[#D4AF37]/5 text-sm text-white">
-              <span className="text-[#D4AF37] font-semibold block mb-1">Our Core Commitment</span>
-              We accept only 4 high-stakes agency engagements per quarter to ensure obsessively meticulous execution.
+              <span className="text-[#D4AF37] font-semibold block mb-1">Our Promise</span>
+              Direct communication with the team building your website, transparent pricing, and zero corporate overhead.
             </div>
           </motion.div>
 
@@ -56,27 +56,27 @@ export default function About() {
             {[
               {
                 icon: Target,
-                title: 'Mission Statement',
+                title: 'Our Mission',
                 description:
-                  'To eliminate third-party commission dependency for luxury boutique hotels and restaurants through high-converting web architecture.',
+                  'Helping hotels, cafés, and restaurants attract more direct bookings and inquiries with clean, modern websites.',
               },
               {
                 icon: Compass,
-                title: 'Design Vision',
+                title: 'Design Focus',
                 description:
-                  'Creating timeless, editorial digital experiences that look at home on Awwwards and drive direct bottom-line revenue.',
+                  'Combining elegant typography, dark luxury styling, and fast performance tailored to your unique venue.',
               },
               {
                 icon: ShieldCheck,
-                title: 'Uncompromising Quality',
+                title: 'Custom Built',
                 description:
-                  'Zero templates, zero bloated page builders. Hand-crafted Next.js & React code built for 95+ Lighthouse speed scores.',
+                  'Hand-crafted Next.js & React websites optimized for mobile responsiveness and fast page load speeds.',
               },
               {
-                icon: Award,
-                title: 'The ₹1L+ Benchmark',
+                icon: Sparkles,
+                title: 'Fair Pricing',
                 description:
-                  'We partner exclusively with visionaries who understand that high-end digital design is an investment, not an expense.',
+                  'High-end design made accessible to hospitality businesses of all sizes with clear starting packages.',
               },
             ].map(({ icon: Icon, title, description }) => (
               <div

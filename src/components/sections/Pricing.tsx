@@ -4,58 +4,72 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight, Sparkles } from 'lucide-react';
 import SectionHeader from '@/components/shared/SectionHeader';
 
-const pricingTiers = [
+const primaryTiers = [
   {
-    title: 'Landing Page Flagship',
-    category: 'High-Converting Campaign Page',
-    startingPrice: '₹1.2L',
+    title: 'Premium Landing Page',
+    category: 'Single Page Website',
+    startingPrice: '₹9,999',
     description:
-      'Engineered for boutique hotels launching a new wing, seasonal promotional campaigns, or luxury culinary venue openings.',
+      'Ideal for promotional campaigns, new menu launches, or single-location cafés looking for a sleek online presence.',
     features: [
-      'Single-Page High-Conversion Flagship',
-      'Direct Booking / Table Reservation Flow',
-      'Framer Motion Micro-Interactions',
-      'Mobile-First Touch Architecture',
-      'Lighthouse 95+ Speed & Performance',
-      'WhatsApp Concierge Integration',
+      'Single Page Custom Design',
+      'Mobile Responsive Layout',
+      'Direct WhatsApp Inquiry Integration',
+      'Location & Google Maps Setup',
+      'Fast Loading Speed',
+      'Basic SEO Setup',
     ],
     popular: false,
-    accent: '#white',
   },
   {
-    title: 'Boutique Hotel & Resort',
-    category: 'Full Digital Presence Engine',
-    startingPrice: '₹2.8L',
+    title: 'Business Website',
+    category: 'Multi-Page Website',
+    startingPrice: '₹14,999',
     description:
-      'Comprehensive digital ecosystem for luxury hotels, resorts, and multi-location properties looking to eliminate OTA commission dependency.',
+      'Perfect for growing cafés, restaurants, and small hospitality businesses wanting a complete digital presence.',
     features: [
-      'Multi-Page Next.js 16 Architecture',
-      'Suite & Amenity Virtual Tour Showcase',
-      'Commission-Free Direct Booking Engine',
-      'Multi-Language & Currency Ready',
-      'Custom Concierge & Event Request Forms',
-      'Full SEO Schema.org Hospitality Setup',
-      'Priority 30-Day Go-Live SLA',
+      '3 to 5 Custom Designed Pages',
+      'Interactive Digital Menu Showcase',
+      'Table Reservation / Contact Form',
+      'Mobile Responsive Layout',
+      'Fast Loading & Smooth Animations',
+      'SEO Basics & Meta Tags',
     ],
     popular: true,
-    accent: '#D4AF37',
   },
   {
-    title: 'Culinary Menu & Brand Suite',
-    category: 'Print, QR & Video Package',
-    startingPrice: '₹1.5L',
+    title: 'Hotel Website Package',
+    category: 'Complete Hotel / Resort Web',
+    startingPrice: '₹24,999',
     description:
-      'Complete brand identity overhaul, leather/linen print menu designs, interactive touchless QR menus, and 8 cinematic Instagram reels.',
+      'Designed specifically for boutique hotels, resorts, and homestays to showcase rooms and drive direct inquiries.',
     features: [
-      'Full Brand Architecture & Guidelines',
-      'Bespoke Print Menu Layouts (CMYK Ready)',
-      'Touchless QR Interactive Digital Menu',
-      '8 Color-Graded 4K Culinary Reels',
-      'Cocktail & Sommelier Booklet Design',
-      'Social Media Creative Starter Kit',
+      'Full Multi-Page Hotel Website',
+      'Room & Amenity Gallery Showcase',
+      'Direct Booking & Inquiry System',
+      'WhatsApp Booking Integration',
+      'Google Maps & Local SEO Setup',
+      'Dedicated Support & Revisions',
     ],
     popular: false,
-    accent: '#white',
+  },
+];
+
+const addOnServices = [
+  {
+    title: 'Menu & Brand Design',
+    price: 'Starting from ₹1,499',
+    description: 'Bespoke print menu layouts and touchless QR menus for your guests.',
+  },
+  {
+    title: 'Reel Editing',
+    price: 'Starting from ₹999 / reel',
+    description: 'High-quality short-form video edits with captions and sound design.',
+  },
+  {
+    title: 'Monthly Digital Support',
+    price: 'Starting from ₹4,999 / mo',
+    description: 'Website updates, menu price changes, backups, and technical maintenance.',
   },
 ];
 
@@ -70,15 +84,16 @@ export default function Pricing() {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeader
-          eyebrow="Transparent Investments"
-          heading="Built For Brands Seeking High Yield."
-          subheading="Clear starting thresholds tailored for high-end hospitality brands. No hidden fees — just transparent, high-ROI digital architecture."
+          eyebrow="Transparent Pricing"
+          heading="Simple & Honest Investment."
+          subheading="Clear, upfront pricing with zero hidden fees. Built specifically for hotels, cafés, restaurants, and hospitality businesses."
           align="center"
           className="mb-20"
         />
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
-          {pricingTiers.map((tier) => (
+        {/* Main Website Packages */}
+        <div className="grid md:grid-cols-3 gap-8 items-stretch mb-16">
+          {primaryTiers.map((tier) => (
             <motion.div
               key={tier.title}
               initial={{ opacity: 0, y: 40 }}
@@ -94,7 +109,7 @@ export default function Pricing() {
               {tier.popular && (
                 <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37] text-black font-semibold text-[10px] uppercase tracking-wider">
                   <Sparkles size={12} />
-                  Most Requested
+                  Most Popular
                 </div>
               )}
 
@@ -113,13 +128,12 @@ export default function Pricing() {
                     <span className="text-4xl font-serif text-[#D4AF37] font-normal">
                       {tier.startingPrice}
                     </span>
-                    <span className="text-xs text-white/40 font-mono">+ GST</span>
                   </div>
                 </div>
 
                 <div className="space-y-3 mb-10">
                   <span className="text-[11px] uppercase tracking-widest text-white/40 font-semibold block mb-2">
-                    Included Architecture
+                    What's Included
                   </span>
                   {tier.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5 text-xs text-white/70">
@@ -138,11 +152,37 @@ export default function Pricing() {
                     : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'
                 }`}
               >
-                <span>Initiate Engagement</span>
+                <span>Start Your Project</span>
                 <ArrowRight size={14} />
               </a>
             </motion.div>
           ))}
+        </div>
+
+        {/* Additional Services Bar */}
+        <div className="glass-card p-8 lg:p-10 rounded-2xl border border-white/10">
+          <h4 className="text-center font-serif text-xl text-white mb-8">
+            Additional Design & Support Services
+          </h4>
+          <div className="grid md:grid-cols-3 gap-8">
+            {addOnServices.map((addon) => (
+              <div key={addon.title} className="p-4 border-l border-[#D4AF37]/30">
+                <h5 className="text-white font-medium text-base mb-1">{addon.title}</h5>
+                <span className="text-[#D4AF37] text-sm font-serif font-medium block mb-2">
+                  {addon.price}
+                </span>
+                <p className="text-xs text-white/50">{addon.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 text-xs text-[#D4AF37] uppercase tracking-widest hover:underline"
+            >
+              Need a custom bundle or quote? Let's Talk <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

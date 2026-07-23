@@ -166,9 +166,9 @@ export default function RoiCalculator() {
 
               <div className="p-3 rounded-lg bg-black/40 border border-white/5 text-xs text-white/70">
                 <span className="text-[#D4AF37] font-semibold block mb-0.5">Altiora Payback Time</span>
-                An Altiora ₹2.8L Flagship website pays for itself in approx{' '}
+                Our ₹24,999 Hotel Website Package pays for itself in approx{' '}
                 <span className="text-white font-mono font-semibold">
-                  {Math.max(1, Math.round((280000 / monthlySavings) * 10) / 10)} months
+                  {Math.max(1, Math.round((24999 / monthlySavings) * 10) / 10)} months
                 </span>
                 .
               </div>
@@ -178,7 +178,7 @@ export default function RoiCalculator() {
               href="#contact"
               className="w-full py-3.5 rounded-full bg-[#D4AF37] text-black font-semibold text-xs uppercase tracking-widest hover:bg-[#F5E17A] transition-all flex items-center justify-center gap-2 shadow-xl"
             >
-              <span>Reclaim Your Commission</span>
+              <span>Get Your Website</span>
               <ArrowRight size={14} />
             </a>
           </div>

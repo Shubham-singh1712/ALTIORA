@@ -7,44 +7,44 @@ const steps = [
   {
     number: '01',
     phase: 'Discovery',
-    title: 'Immersion & Business Audit',
+    title: 'Consultation & Planning',
     description:
-      'We analyze your property, brand positioning, audience demographics, and current direct booking performance to establish concrete CRO benchmarks.',
+      'We discuss your goals, target guests, brand aesthetic, and key website requirements.',
   },
   {
     number: '02',
     phase: 'Strategy',
-    title: 'Architecture & UX Blueprint',
+    title: 'Structure & Content',
     description:
-      'Designing low-friction user paths, direct booking funnels, menu ordering psychology, and content hierarchy focused on high conversion rates.',
+      'Mapping out clear page structures, photo highlights, digital menu items, and direct inquiry buttons.',
   },
   {
     number: '03',
     phase: 'Design',
-    title: 'High-Fidelity Editorial UI',
+    title: 'Custom Visual Design',
     description:
-      'Crafting bespoke Awwwards-caliber UI components, typography pairings, micro-interactions, dark mode elegance, and luxury visual language.',
+      'Crafting clean layouts, elegant typography, dark luxury accents, and high-impact visual elements.',
   },
   {
     number: '04',
     phase: 'Development',
-    title: 'Next.js & Framer Motion Code',
+    title: 'Code & Integration',
     description:
-      'Hand-coding performant React Server Components, smooth scroll providers, responsive layouts, and API integrations for instant speed.',
+      'Building responsive pages with fast load speeds, smooth animations, and WhatsApp integration.',
   },
   {
     number: '05',
     phase: 'Launch',
-    title: 'Testing & Global Deployment',
+    title: 'Testing & Go-Live',
     description:
-      'Executing 100+ point Lighthouse audits, cross-device testing, SEO Schema verification, and seamless Vercel edge deployment.',
+      'Testing across mobile devices and desktop browsers before launching your site live.',
   },
   {
     number: '06',
     phase: 'Support',
-    title: 'Optimization & Concierge Care',
+    title: 'Ongoing Maintenance',
     description:
-      'Continuous conversion rate optimization, monthly performance audits, security patches, and instant content updates.',
+      'Assisting with content updates, menu price changes, and technical support as your business grows.',
   },
 ];
 
@@ -53,9 +53,9 @@ export default function Process() {
     <section id="process" className="py-28 lg:py-40 bg-[#080808] relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeader
-          eyebrow="Execution Roadmap"
-          heading="Six Phases To Digital Distinction."
-          subheading="A transparent, high-touch engineering process designed to keep your brand informed at every milestone while delivering flawless execution."
+          eyebrow="How We Work"
+          heading="Our Simple 6-Step Process."
+          subheading="A clear and collaborative workflow to take your project from initial idea to live website without hassle."
           align="center"
           className="mb-20"
         />

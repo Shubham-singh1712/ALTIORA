@@ -72,13 +72,13 @@ export default function CTA() {
           {/* CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-5">
             <MagneticButton
-              href="https://wa.me/919876543210?text=Hello%20Altiora%2C%20I%27d%20like%20to%20discuss%20a%20project."
+              href="https://wa.me/919431994162?text=Hello%20Altiora%2C%20I%27d%20like%20to%20discuss%20a%20website%20project."
               variant="primary"
             >
               <MessageCircle size={16} />
               Start on WhatsApp
             </MagneticButton>
-            <MagneticButton href="mailto:hello@altiora.in" variant="secondary">
+            <MagneticButton href="mailto:reachaltiora@gmail.com" variant="secondary">
               Send Us an Email
               <ArrowRight size={14} />
             </MagneticButton>

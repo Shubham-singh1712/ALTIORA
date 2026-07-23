@@ -2,21 +2,8 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, ChevronDown, Sparkles, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ChevronDown, Sparkles, Globe, Smartphone, Utensils, Video } from 'lucide-react';
 import MagneticButton from '@/components/shared/MagneticButton';
-import AnimatedCounter from '@/components/shared/AnimatedCounter';
-
-const headlineWords = [
-  'We',
-  'Build',
-  'Digital',
-  'Experiences',
-  'That',
-  'Turn',
-  'Visitors',
-  'Into',
-  'Customers.',
-];
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,29 +21,29 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#050505] bg-grid-pattern pt-28 pb-16 lg:pt-36 lg:pb-20"
       id="home"
     >
-      {/* Floating dynamic luxury mesh gradient */}
+      {/* Subtle ambient lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          className="absolute -top-32 right-10 w-[700px] h-[700px] rounded-full opacity-[0.12] blur-[120px]"
+          className="absolute -top-32 right-10 w-[600px] h-[600px] rounded-full opacity-[0.10] blur-[120px]"
           style={{
             background: 'radial-gradient(circle, #D4AF37 0%, #F5E17A 35%, transparent 70%)',
           }}
           animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 40, 0],
-            y: [0, -30, 0],
+            scale: [1, 1.15, 1],
+            x: [0, 30, 0],
+            y: [0, -20, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-10 left-10 w-[550px] h-[550px] rounded-full opacity-[0.08] blur-[100px]"
+          className="absolute bottom-10 left-10 w-[500px] h-[500px] rounded-full opacity-[0.06] blur-[100px]"
           style={{
             background: 'radial-gradient(circle, #ffffff 0%, #D4AF37 40%, transparent 70%)',
           }}
           animate={{
-            scale: [1, 1.25, 1],
-            x: [0, -30, 0],
-            y: [0, 40, 0],
+            scale: [1, 1.2, 1],
+            x: [0, -20, 0],
+            y: [0, 30, 0],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
@@ -66,102 +53,86 @@ export default function Hero() {
         className="container mx-auto px-6 lg:px-12 relative z-10 my-auto"
         style={{ y, opacity }}
       >
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Headline & Persuasive CRO Copy */}
-          <div className="lg:col-span-7">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-12 items-center">
+          {/* Left Column: Clear Direct Headline & Simple Business Copy */}
+          <div className="lg:col-span-6 text-left">
             {/* Tagline Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 backdrop-blur-md mb-8"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5 backdrop-blur-md mb-6"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37] animate-pulse" />
-              <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-semibold">
-                Luxury Hospitality & Brand Architecture
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span className="text-[#D4AF37] text-[11px] tracking-[0.2em] uppercase font-semibold">
+                Digital Agency for Hotels, Cafés & Restaurants
               </span>
             </motion.div>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-[1.06] text-white mb-8 tracking-tight">
-              {headlineWords.map((word, i) => {
-                const isHighlight =
-                  word === 'Digital' || word === 'Experiences' || word === 'Customers.';
-                return (
-                  <motion.span
-                    key={word + i}
-                    className="inline-block mr-[0.22em] origin-bottom"
-                    initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.35 + i * 0.08,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
-                    {isHighlight ? (
-                      <span className="text-gold-gradient font-normal">{word}</span>
-                    ) : (
-                      word
-                    )}
-                  </motion.span>
-                );
-              })}
-            </h1>
-
-            {/* Subheading / CRO Statement */}
-            <motion.p
+            {/* Clear Headline */}
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="text-white/60 text-lg sm:text-xl font-light leading-relaxed mb-10 max-w-xl"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-serif font-light leading-[1.1] text-white mb-6 tracking-tight"
             >
-              We engineer bespoke digital flagship websites, high-converting culinary menus, and high-impact visual assets for luxury hotels, fine dining restaurants, and ambitious brands charging premium rates.
+              We Design Premium Websites That Bring You{' '}
+              <span className="text-gold-gradient font-normal">More Customers.</span>
+            </motion.h1>
+
+            {/* Supporting Paragraph */}
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              className="text-white/70 text-base sm:text-lg font-light leading-relaxed mb-8 max-w-xl"
+            >
+              Altiora helps boutique hotels, resorts, cafés, and restaurants stand out online. We create elegant websites, digital menus, and video content that make a lasting first impression and turn online visitors into paying guests.
             </motion.p>
 
-            {/* CTAs & Trust Signal */}
+            {/* Service Pills */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.25 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-14"
-            >
-              <MagneticButton href="#contact" variant="primary">
-                Book ₹1L+ Strategy Call
-                <ArrowRight size={16} className="ml-1" />
-              </MagneticButton>
-              <MagneticButton href="#work" variant="secondary">
-                Explore Case Studies
-              </MagneticButton>
-            </motion.div>
-
-            {/* Proof Counters */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.45 }}
-              className="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 sm:gap-10"
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="flex flex-wrap gap-2.5 mb-10 text-xs text-white/70"
             >
               {[
-                { value: 50, suffix: '+', label: 'Bespoke Projects' },
-                { value: 3.2, suffix: 'x', label: 'Avg Direct Bookings' },
-                { value: 100, suffix: '%', label: 'Client Retention' },
-              ].map(({ value, suffix, label }) => (
-                <div key={label}>
-                  <div className="text-2xl sm:text-4xl font-serif text-[#D4AF37] mb-1">
-                    <AnimatedCounter target={value} suffix={suffix} />
-                  </div>
-                  <div className="text-white/40 text-[11px] sm:text-xs tracking-wider uppercase font-medium">
-                    {label}
-                  </div>
+                { icon: Globe, label: 'Website Development' },
+                { icon: Smartphone, label: 'Landing Pages' },
+                { icon: Utensils, label: 'Menu Design' },
+                { icon: Video, label: 'Reel Editing' },
+              ].map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5"
+                >
+                  <Icon size={13} className="text-[#D4AF37]" />
+                  <span>{label}</span>
                 </div>
               ))}
             </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8"
+            >
+              <MagneticButton href="#contact" variant="primary">
+                Start Your Project
+                <ArrowRight size={16} className="ml-1" />
+              </MagneticButton>
+              <MagneticButton href="#work" variant="secondary">
+                View Portfolio
+              </MagneticButton>
+            </motion.div>
           </div>
 
-          {/* Right Column: Floating Luxury Geometry */}
-          <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative">
-            <HeroVisual />
+          {/* Right Column: Realistic Website & Mobile Device Mockup */}
+          <div className="lg:col-span-6 relative">
+            <HeroMockupVisual />
           </div>
         </div>
       </motion.div>
@@ -170,7 +141,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.8, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
         className="container mx-auto px-6 relative z-10 flex justify-center pt-8"
       >
         <a
@@ -192,89 +163,93 @@ export default function Hero() {
   );
 }
 
-function HeroVisual() {
+function HeroMockupVisual() {
   return (
-    <div className="relative w-[480px] h-[480px]">
-      {/* Outer concentric rings */}
-      <motion.div
-        className="absolute inset-0 rounded-full border border-[#D4AF37]/15"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
-      >
-        {[0, 90, 180, 270].map((deg) => (
-          <div
-            key={deg}
-            className="absolute w-2.5 h-2.5 rounded-full bg-[#D4AF37]"
-            style={{
-              top: '50%',
-              left: '50%',
-              transform: `rotate(${deg}deg) translateX(240px) translateY(-50%)`,
-            }}
-          />
-        ))}
-      </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.4 }}
+      className="relative w-full max-w-lg mx-auto py-4"
+    >
+      {/* Primary Realistic Desktop Window Mockup */}
+      <div className="relative rounded-2xl glass-card border border-white/15 overflow-hidden shadow-2xl bg-[#0d0d0d]">
+        {/* Browser Top Header */}
+        <div className="px-4 py-3 bg-black/60 border-b border-white/10 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-rose-500/80" />
+            <div className="w-3 h-3 rounded-full bg-amber-500/80" />
+            <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+          </div>
+          <div className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-mono text-white/50 w-52 text-center truncate">
+            meridian-hotel.com
+          </div>
+          <div className="w-10" />
+        </div>
 
-      <motion.div
-        className="absolute inset-16 rounded-full border border-white/10"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-      />
-
-      {/* Central 3D Card Glass Stack */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="relative w-72 h-80 glass-card p-6 flex flex-col justify-between shadow-2xl border border-white/15"
-          animate={{ y: [-8, 8, -8] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        >
+        {/* Website Content Preview */}
+        <div className="p-6 space-y-5 bg-gradient-to-b from-[#0a0a0a] to-[#121212]">
+          {/* Mock Header Nav */}
           <div className="flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#D4AF37]" />
-              <span className="text-xs text-white/80 font-mono">ALTIORA // FLAGSHIP</span>
+              <div className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+              <span className="font-serif text-sm text-white tracking-widest uppercase">The Meridian</span>
             </div>
-            <ShieldCheck size={16} className="text-[#D4AF37]" />
+            <span className="px-3 py-1 rounded-full bg-[#D4AF37] text-black text-[10px] font-semibold uppercase tracking-wider">
+              Book Direct
+            </span>
           </div>
 
-          <div className="my-auto space-y-3">
-            <div className="text-xs text-[#D4AF37] uppercase tracking-widest font-semibold">
-              Conversion Architecture
-            </div>
-            <div className="text-xl font-serif text-white leading-snug">
-              Luxury Hotel & Culinary Digital Elevation
-            </div>
-            <div className="flex items-center gap-2 text-xs text-white/50">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Direct Booking Engine Integrated
-            </div>
+          {/* Mock Hero Content */}
+          <div className="space-y-3 pt-2">
+            <span className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-mono">Boutique Stay & Dining</span>
+            <h4 className="text-xl sm:text-2xl font-serif text-white font-light leading-snug">
+              Luxury Oceanfront Suites & Culinary Dining
+            </h4>
+            <p className="text-xs text-white/50 leading-relaxed max-w-xs">
+              Experience handcrafted comfort with direct sea views, private plunge pools, and artisanal cuisine.
+            </p>
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex justify-between items-center text-[11px] text-white/40">
-            <span>ROI ESTIMATE</span>
-            <span className="text-[#D4AF37] font-semibold">+320% Revenue</span>
+          {/* Mock Feature Highlights Grid */}
+          <div className="grid grid-cols-2 gap-3 pt-2">
+            <div className="p-3 rounded-xl border border-white/10 bg-white/5">
+              <span className="text-[#D4AF37] text-xs font-serif font-semibold block mb-0.5">Rooms & Suites</span>
+              <span className="text-[10px] text-white/40 block">From ₹8,500/night</span>
+            </div>
+            <div className="p-3 rounded-xl border border-white/10 bg-white/5">
+              <span className="text-[#D4AF37] text-xs font-serif font-semibold block mb-0.5">Chef Table Menu</span>
+              <span className="text-[10px] text-white/40 block">Seasonal Tasting Menu</span>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Floating Badges */}
-      {[
-        { label: 'Boutique Hotel Flagships', x: '-110%', y: '-10%', delay: 0 },
-        { label: 'QR & Print Menu Systems', x: '80%', y: '10%', delay: 0.4 },
-        { label: 'High-Impact Reels', x: '-100%', y: '80%', delay: 0.8 },
-        { label: '₹1L+ Client Standard', x: '75%', y: '85%', delay: 1.2 },
-      ].map(({ label, x, y: yPos, delay }) => (
-        <motion.div
-          key={label}
-          className="absolute glass-card px-4 py-2 text-xs text-white/80 tracking-wider whitespace-nowrap shadow-lg border border-white/10"
-          style={{ left: '50%', top: '50%', translateX: x, translateY: yPos }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: delay + 1.2, duration: 0.6 }}
-        >
-          <span className="text-[#D4AF37] mr-2">✦</span>
-          {label}
-        </motion.div>
-      ))}
-    </div>
+      {/* Floating Realistic Smartphone Mockup Overlay */}
+      <motion.div
+        className="absolute -bottom-6 -right-4 sm:-right-8 w-44 sm:w-52 rounded-2xl glass-card border border-[#D4AF37]/30 bg-[#080808] p-3 shadow-2xl"
+        animate={{ y: [-5, 5, -5] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="w-12 h-1 bg-white/20 rounded-full mx-auto mb-2" />
+        <div className="p-3 rounded-xl border border-white/10 bg-black/80 space-y-2">
+          <div className="flex items-center justify-between text-[10px] text-white/50 font-mono">
+            <span>DIGITAL MENU</span>
+            <span className="text-[#D4AF37]">QR CODE</span>
+          </div>
+          <div className="text-xs font-serif text-white">Noir Coffee Co.</div>
+          <div className="space-y-1.5 pt-1">
+            <div className="flex justify-between items-center text-[10px] text-white/70">
+              <span>Artisanal Espresso</span>
+              <span className="text-[#D4AF37]">₹280</span>
+            </div>
+            <div className="flex justify-between items-center text-[10px] text-white/70">
+              <span>Truffle Croissant</span>
+              <span className="text-[#D4AF37]">₹340</span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

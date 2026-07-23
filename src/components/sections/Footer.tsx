@@ -85,19 +85,19 @@ export default function Footer() {
               <div>
                 <p className="text-white/30 text-xs uppercase tracking-wider mb-1">Email</p>
                 <a
-                  href="mailto:hello@altiora.in"
+                  href="mailto:reachaltiora@gmail.com"
                   className="text-white/60 text-sm hover:text-gold transition-colors duration-300"
                 >
-                  hello@altiora.in
+                  reachaltiora@gmail.com
                 </a>
               </div>
               <div>
-                <p className="text-white/30 text-xs uppercase tracking-wider mb-1">WhatsApp</p>
+                <p className="text-white/30 text-xs uppercase tracking-wider mb-1">Phone / WhatsApp</p>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919431994162"
                   className="text-white/60 text-sm hover:text-gold transition-colors duration-300"
                 >
-                  +91 98765 43210
+                  +91 94319 94162
                 </a>
               </div>
               <div>
