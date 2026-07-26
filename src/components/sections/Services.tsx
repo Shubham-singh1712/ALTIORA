@@ -20,6 +20,7 @@ const services = [
       'Easy Content Management',
     ],
     accent: '#D4AF37',
+    demoUrl: 'https://hotel-management-lpu1.vercel.app/',
   },
   {
     icon: Utensils,
@@ -36,6 +37,7 @@ const services = [
       'Social Media Menu Assets',
     ],
     accent: '#F5E17A',
+    demoUrl: 'https://cafe-menu-sooty-omega.vercel.app/',
   },
   {
     icon: Sparkles,
@@ -70,6 +72,8 @@ const services = [
     accent: '#F5E17A',
   },
 ];
+
+type Service = (typeof services)[number];
 
 const containerVariants = {
   hidden: {},
@@ -157,13 +161,26 @@ export default function Services() {
                 </div>
 
                 {/* Card CTA */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-between pt-4 border-t border-white/10 text-xs tracking-widest uppercase text-white/80 group-hover:text-[#D4AF37] transition-colors"
-                >
-                  <span>Request a Quote</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                <div className="flex items-center justify-between pt-4 border-t border-white/10 gap-4">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-white/80 group-hover:text-[#D4AF37] transition-colors"
+                  >
+                    <span>Request a Quote</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  {'demoUrl' in service && (service as { demoUrl?: string }).demoUrl && (
+                    <a
+                      href={(service as { demoUrl: string }).demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/40 text-[10px] uppercase tracking-widest text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 shrink-0"
+                    >
+                      <span>Live Demo</span>
+                      <ArrowRight size={11} />
+                    </a>
+                  )}
+                </div>
               </motion.div>
             );
           })}

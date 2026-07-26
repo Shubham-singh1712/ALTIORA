@@ -19,6 +19,7 @@ interface Project {
   device: 'laptop' | 'phone' | 'tablet';
   accentColor: string;
   metrics: { label: string; value: string }[];
+  demoUrl?: string;
 }
 
 const projects: Project[] = [
@@ -38,6 +39,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Direct Bookings', 'Luxury Web'],
     device: 'laptop',
     accentColor: '#D4AF37',
+    demoUrl: 'https://hotel-management-lpu1.vercel.app/',
     metrics: [
       { label: 'Direct Booking Growth', value: '+320%' },
       { label: 'Lighthouse Speed Score', value: '99/100' },
@@ -60,6 +62,7 @@ const projects: Project[] = [
     tags: ['Branding', 'QR Menu', 'Reel Editing'],
     device: 'phone',
     accentColor: '#C0C0C0',
+    demoUrl: 'https://cafe-menu-sooty-omega.vercel.app/',
     metrics: [
       { label: 'Average Check Growth', value: '+38%' },
       { label: 'Reel Impression Total', value: '140K+' },
@@ -163,7 +166,7 @@ export default function FeaturedWork() {
                       background: `radial-gradient(circle at 50% 50%, ${project.accentColor}15, transparent 70%)`,
                     }}
                   />
-                  <DeviceMockup device={project.device} accent={project.accentColor} title={project.title} />
+                  <DeviceMockup device={project.device} accent={project.accentColor} title={project.title} demoUrl={project.demoUrl} />
                 </div>
 
                 {/* Case Study Details */}
@@ -228,13 +231,26 @@ export default function FeaturedWork() {
                       ))}
                     </div>
 
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4AF37] hover:text-white transition-colors"
-                    >
-                      <span>Read Case Study</span>
-                      <ArrowUpRight size={14} />
-                    </button>
+                    <div className="flex items-center gap-4">
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/40 text-xs uppercase tracking-widest text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300"
+                        >
+                          <span>Live Demo</span>
+                          <ArrowUpRight size={12} />
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/50 hover:text-[#D4AF37] transition-colors"
+                      >
+                        <span>Case Study</span>
+                        <ArrowUpRight size={14} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -334,26 +350,45 @@ function DeviceMockup({
   device,
   accent,
   title,
+  demoUrl,
 }: {
   device: 'laptop' | 'phone' | 'tablet';
   accent: string;
   title: string;
+  demoUrl?: string;
 }) {
   if (device === 'laptop') {
     return (
-      <div className="relative w-full max-w-lg aspect-[16/10] bg-[#121212] rounded-xl border border-white/15 p-3 flex flex-col justify-between shadow-2xl">
-        <div className="flex items-center justify-between pb-2 border-b border-white/10">
+      <div className="relative w-full max-w-lg aspect-[16/10] bg-[#121212] rounded-xl border border-white/15 shadow-2xl flex flex-col overflow-hidden">
+        {/* Browser chrome */}
+        <div className="flex items-center gap-3 px-4 py-2.5 border-b border-white/10 bg-[#0d0d0d] shrink-0">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
           </div>
-          <span className="text-[10px] text-white/40 font-mono">https://altiora.agency/{title.toLowerCase().replace(/\s+/g, '-')}</span>
+          <span className="flex-1 text-center text-[10px] text-white/30 font-mono truncate">
+            {demoUrl ?? `https://altiora.agency/${title.toLowerCase().replace(/\s+/g, '-')}`}
+          </span>
         </div>
-        <div className="my-auto text-center p-6 border border-dashed border-white/10 rounded-lg">
-          <Laptop size={32} className="mx-auto mb-2 text-[#D4AF37]" />
-          <div className="text-xs font-serif text-white">{title} Flagship Site</div>
-          <div className="text-[10px] text-white/40 font-mono mt-1">Interactive 4K Canvas</div>
+        {/* Screen */}
+        <div className="flex-1 relative">
+          {demoUrl ? (
+            <iframe
+              src={demoUrl}
+              title={title}
+              className="absolute inset-0 w-full h-full border-0"
+              style={{ transform: 'scale(1)', transformOrigin: 'top left' }}
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-forms"
+            />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 border border-dashed border-white/10 rounded-b-xl">
+              <Laptop size={32} className="mb-2 text-[#D4AF37]" />
+              <div className="text-xs font-serif text-white">{title} Flagship Site</div>
+              <div className="text-[10px] text-white/40 font-mono mt-1">Interactive 4K Canvas</div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -361,12 +396,32 @@ function DeviceMockup({
 
   if (device === 'phone') {
     return (
-      <div className="relative w-48 aspect-[9/19] bg-[#121212] rounded-3xl border-2 border-white/20 p-3 flex flex-col justify-between shadow-2xl">
-        <div className="w-16 h-3 bg-white/10 rounded-full mx-auto mb-2" />
-        <div className="my-auto text-center p-4 border border-dashed border-white/10 rounded-xl">
-          <Smartphone size={28} className="mx-auto mb-2 text-[#D4AF37]" />
-          <div className="text-[11px] font-serif text-white">{title}</div>
-          <div className="text-[9px] text-white/40 font-mono mt-1">QR Menu & Reels</div>
+      <div className="relative w-52 aspect-[9/19] bg-[#121212] rounded-3xl border-2 border-white/20 shadow-2xl flex flex-col overflow-hidden py-3">
+        {/* Notch */}
+        <div className="w-16 h-3 bg-white/10 rounded-full mx-auto mb-2 shrink-0" />
+        {/* Screen */}
+        <div className="flex-1 relative mx-2 rounded-2xl overflow-hidden">
+          {demoUrl ? (
+            <iframe
+              src={demoUrl}
+              title={title}
+              className="absolute inset-0 border-0"
+              style={{
+                width: '375px',
+                height: '812px',
+                transform: 'scale(0.505)',
+                transformOrigin: 'top left',
+              }}
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-forms"
+            />
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 border border-dashed border-white/10 rounded-2xl">
+              <Smartphone size={28} className="mb-2 text-[#D4AF37]" />
+              <div className="text-[11px] font-serif text-white">{title}</div>
+              <div className="text-[9px] text-white/40 font-mono mt-1">QR Menu & Reels</div>
+            </div>
+          )}
         </div>
       </div>
     );
