@@ -8,7 +8,7 @@ const primaryTiers = [
   {
     title: 'Premium Landing Page',
     category: 'Single Page Website',
-    startingPrice: '₹14,999',
+    startingPrice: '₹18,999',
     description:
       'Ideal for promotional campaigns, new menu launches, or single-location cafés looking for a sleek online presence.',
     features: [
@@ -106,11 +106,10 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
               viewport={{ once: true, margin: '-40px' }}
-              className={`relative glass-card p-8 lg:p-10 flex flex-col justify-between rounded-2xl overflow-hidden ${
-                tier.popular
+              className={`relative glass-card p-8 lg:p-10 flex flex-col justify-between rounded-2xl overflow-hidden ${tier.popular
                   ? 'border-[#D4AF37]/50 shadow-[0_0_50px_-15px_rgba(212,175,55,0.15)] bg-[#101010]/80'
                   : 'border-white/10'
-              }`}
+                }`}
             >
               {tier.popular && (
                 <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37] text-black font-semibold text-[10px] uppercase tracking-wider">
@@ -152,11 +151,10 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`w-full py-4 rounded-full flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-semibold transition-all ${
-                  tier.popular
+                className={`w-full py-4 rounded-full flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-semibold transition-all ${tier.popular
                     ? 'bg-[#D4AF37] text-black hover:bg-[#F5E17A]'
                     : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'
-                }`}
+                  }`}
               >
                 <span>{tier.buttonText}</span>
                 <ArrowRight size={14} />

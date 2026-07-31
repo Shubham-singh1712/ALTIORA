@@ -179,7 +179,7 @@ export default function Contact() {
                         onChange={(e) => setForm({ ...form, service: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
                       >
-                        <option value="Premium Landing Page" className="bg-[#101010] text-white">Premium Landing Page (₹14,999+)</option>
+                        <option value="Premium Landing Page" className="bg-[#101010] text-white">Premium Landing Page (₹18,999+)</option>
                         <option value="Cafe Menu System" className="bg-[#101010] text-white">Cafe Menu System (₹8,999+)</option>
                         <option value="Hotel Website Package" className="bg-[#101010] text-white">Hotel / Resort Website (₹28,999+)</option>
                         <option value="Menu & Brand Design" className="bg-[#101010] text-white">Menu & Brand Design (₹1,499+)</option>
