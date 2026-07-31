@@ -8,7 +8,7 @@ const primaryTiers = [
   {
     title: 'Premium Landing Page',
     category: 'Single Page Website',
-    startingPrice: '₹9,999',
+    startingPrice: '₹14,999',
     description:
       'Ideal for promotional campaigns, new menu launches, or single-location cafés looking for a sleek online presence.',
     features: [
