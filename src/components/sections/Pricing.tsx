@@ -40,7 +40,7 @@ const primaryTiers = [
   {
     title: 'Hotel Website Package',
     category: 'Complete Hotel / Resort Web',
-    startingPrice: '₹24,999',
+    startingPrice: '₹28,999',
     description:
       'Designed specifically for boutique hotels, resorts, and homestays to showcase rooms and drive direct inquiries.',
     features: [

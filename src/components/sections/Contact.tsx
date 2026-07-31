@@ -181,7 +181,7 @@ export default function Contact() {
                       >
                         <option value="Premium Landing Page" className="bg-[#101010] text-white">Premium Landing Page (₹9,999+)</option>
                         <option value="Business Website" className="bg-[#101010] text-white">Business Website (₹14,999+)</option>
-                        <option value="Hotel Website Package" className="bg-[#101010] text-white">Hotel / Resort Website (₹24,999+)</option>
+                        <option value="Hotel Website Package" className="bg-[#101010] text-white">Hotel / Resort Website (₹28,999+)</option>
                         <option value="Menu & Brand Design" className="bg-[#101010] text-white">Menu & Brand Design (₹1,499+)</option>
                         <option value="Reel Editing" className="bg-[#101010] text-white">Reel Editing (₹999/reel+)</option>
                         <option value="Monthly Support" className="bg-[#101010] text-white">Monthly Support (₹4,999/mo+)</option>
