@@ -20,22 +20,27 @@ const primaryTiers = [
       'Basic SEO Setup',
     ],
     popular: false,
+    buttonText: 'Start Your Project',
   },
   {
-    title: 'Business Website',
-    category: 'Multi-Page Website',
-    startingPrice: '₹14,999',
+    title: 'Cafe Menu System',
+    category: 'CAFE DIGITAL MENU',
+    startingPrice: '₹8,999',
     description:
-      'Perfect for growing cafés, restaurants, and small hospitality businesses wanting a complete digital presence.',
+      'Designed for cafés, restaurants, bakeries, and food outlets that want a premium digital menu experience accessible through QR codes while improving customer engagement.',
     features: [
-      '3 to 5 Custom Designed Pages',
-      'Interactive Digital Menu Showcase',
-      'Table Reservation / Contact Form',
-      'Mobile Responsive Layout',
-      'Fast Loading & Smooth Animations',
-      'SEO Basics & Meta Tags',
+      'Premium Digital QR Menu',
+      'Unlimited Menu Categories',
+      'Mobile Responsive Design',
+      'Instant Menu Updates',
+      'WhatsApp Ordering / Inquiry Button',
+      'Google Maps Integration',
+      'Fast Loading Performance',
+      'Basic SEO Setup',
+      '1 Month Free Support',
     ],
-    popular: true,
+    popular: false,
+    buttonText: 'Launch Your Menu',
   },
   {
     title: 'Hotel Website Package',
@@ -52,6 +57,7 @@ const primaryTiers = [
       'Dedicated Support & Revisions',
     ],
     popular: false,
+    buttonText: 'Start Your Project',
   },
 ];
 
@@ -152,7 +158,7 @@ export default function Pricing() {
                     : 'border border-white/20 text-white hover:border-[#D4AF37] hover:text-[#D4AF37]'
                 }`}
               >
-                <span>Start Your Project</span>
+                <span>{tier.buttonText}</span>
                 <ArrowRight size={14} />
               </a>
             </motion.div>
